@@ -5,6 +5,7 @@ own additional test cases to cover any failed tests shown in the Project Assista
 """
 import unittest
 import solution
+import utils
 
 
 class TestNakedTwins(unittest.TestCase):
@@ -73,10 +74,24 @@ class TestNakedTwins(unittest.TestCase):
     ]
 
     def test_naked_twins(self):
+        print('\nExpected 1\n')
+        utils.display(self.possible_solutions_1[0])
+        print('\nExpected 2\n')
+        utils.display(self.possible_solutions_1[1])
+        print('\nMine before\n')
+        utils.display(self.before_naked_twins_1)
+        print('\nMine after\n')
         self.assertTrue(solution.naked_twins(self.before_naked_twins_1) in self.possible_solutions_1,
                         "Your naked_twins function produced an unexpected board.")
 
     def test_naked_twins2(self):
+        print('\nExpected 1\n')
+        utils.display(self.possible_solutions_2[0])
+        print('\nExpected 2\n')
+        utils.display(self.possible_solutions_2[1])
+        print('\nMine before\n')
+        utils.display(self.before_naked_twins_2)
+        print('\nMine after\n')
         self.assertTrue(solution.naked_twins(self.before_naked_twins_2) in self.possible_solutions_2,
                         "Your naked_twins function produced an unexpected board.")
 
@@ -97,7 +112,11 @@ class TestDiagonalSudoku(unittest.TestCase):
                           'D1': '5'}
 
     def test_solve(self):
+        print('\n')
+        utils.display(self.solved_diag_sudoku)
         self.assertEqual(solution.solve(self.diagonal_grid), self.solved_diag_sudoku)
 
 if __name__ == '__main__':
-    unittest.main()
+    #unittest.main()
+    test = TestNakedTwins()
+    test.test_naked_twins()
